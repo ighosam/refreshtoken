@@ -24,12 +24,14 @@ export default {
             "type":"string",
             "required":true,
             "unique":true,
-            "private":true  
+           "private":true,
+            configurable:false
         },
         "user":{
           "type":"relation",
           "relation":"oneToOne",
-          "target": "plugin::users-permissions.user"
+          "target": "plugin::users-permissions.user",
+          "invarsedBy":"refresh_token"
         },
         "expires":{
             "type":"datetime",
