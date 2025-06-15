@@ -1,0 +1,38 @@
+@host = localhost:1337
+
+
+###
+# @name register
+post http://{{host}}/api/auth/local/register
+Content-Type: application/json
+
+{
+    "username": "osam",
+    "password": "osam123",
+    "email": "sam23844@gmail.com"   
+}
+
+###
+
+# @name login
+post http://{{host}}/api/auth/local
+Content-Type: application/json
+
+{
+    "identifier": "osam",
+    "password": "osam123"  
+}
+
+###
+
+@access_token = {{login.response.body.$.jwt}}
+
+
+GET http://{{host}}/api/products
+content-type: application/json
+Authorization: Bearer {{access_token}}
+
+###
+
+GET http://{{host}}/api/refreshtoken/task
+Content-Type: application/json

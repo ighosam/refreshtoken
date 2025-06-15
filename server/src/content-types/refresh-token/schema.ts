@@ -1,8 +1,8 @@
 export default {
    
         "kind": "collectionType",
-     "collectionName": "refresh",
-     "info":{
+        "collectionName": "refresh",
+        "info":{
         "singularName": "refreshtoken",
         "pluralName": "refreshtokens",
         "displayName": "Refresh Token",
@@ -31,7 +31,7 @@ export default {
           "type":"relation",
           "relation":"oneToOne",
           "target": "plugin::users-permissions.user",
-          "invarsedBy":"refresh_token"
+          "invarsedBy":"refreshtokens"
         },
         "expires":{
             "type":"datetime",
